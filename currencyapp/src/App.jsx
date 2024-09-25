@@ -30,7 +30,7 @@ function App() {
   <div
       className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
       style={{
-          backgroundImage: `url('${BackgroundImage}')`,
+          backgroundImage: `url('')`,
       }}
   >
       <div className="w-full">
@@ -38,12 +38,18 @@ function App() {
               <form
                   onSubmit={(e) => {
                       e.preventDefault();
+                      converted()
                      
                   }}
               >
                   <div className="w-full mb-1">
                       <InputBox
                           label="From"
+                          amount={amount}
+                          currencyoptions={options}
+                          onCurrencyChange={(currency) => {setAmount(amount)}}
+                          selectcurrency={from}    
+
                           
                       />
                   </div>
