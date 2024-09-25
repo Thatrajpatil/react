@@ -10,6 +10,7 @@ function App() {
  const [convertedAmount , setconvertedAmount] = useState(0)
 
  const Currencyinfo = useCurrencyinfo(from)
+
  const options = Object.keys(Currencyinfo)
 
 
@@ -30,7 +31,7 @@ function App() {
   <div
       className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
       style={{
-          backgroundImage: `url('')`,
+          backgroundImage: `url('https://images.pexels.com/photos/3532540/pexels-photo-3532540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
       }}
   >
       <div className="w-full">
@@ -45,10 +46,11 @@ function App() {
                   <div className="w-full mb-1">
                       <InputBox
                           label="From"
-                          amount={amount}
-                          currencyoptions={options}
-                          onCurrencyChange={(currency) => {setAmount(amount)}}
-                          selectcurrency={from}    
+                            amount={amount}
+                            currencyOptions={options}
+                            onCurrencyChange={(currency) => setAmount(amount)}
+                            selectCurrency={from}
+                            onAmountChange={(amount) => setAmount(amount)}   
 
                           
                       />
@@ -57,7 +59,7 @@ function App() {
                       <button
                           type="button"
                           className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md bg-blue-600 text-white px-2 py-0.5"
-                          
+                          onClick={swap}
                       >
                           swap
                       </button>
@@ -66,10 +68,10 @@ function App() {
                       <InputBox
                           label="To"
                           amount={convertedAmount}
-                          currencyoptions={options}
-                          onCurrencyChange={(currency) => {setto(currency)}}
-                          selectcurrency={from}  
-                          amountDisable 
+                          currencyOptions={options}
+                          onCurrencyChange={(currency) => setto(currency)}
+                          selectCurrency={to}
+                          amountDisable
                           
                       />
                   </div>
